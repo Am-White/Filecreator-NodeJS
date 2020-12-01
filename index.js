@@ -74,8 +74,47 @@ function promptUser() {
 //Creating inner code
 function generateMarkdown(response) {
     return `
+    # ${response.title}
+
+    # Table of Contents
+
+    - [Description](#description)
+    - [Installation](#installation)
+    - [contribution](#contribution)
+    - [Usage](#usage)
+    - [Test](#tests)
+    - [License](#license)
+    - [Credit](#credit)
+    - [Github](#username)
+    - [Contact](#email)
+
+    ## Description:
+
+        ${response.description}
+
+    ## Installation
+
+        ${response.installation}
+
+    ## Usage
+
+        ${response.usage}
+
+    ## Test
+
+        ${response.credit}
     
-    `
+    ## License
+
+    ## Questions:
+
+        For any questions or inquiries, you can send me a direct email or visit 
+        my GitHub page:
+
+        -[GitHub Profile]:(https://github.com${response.username})
+        -[Email]:${response.email}
+    
+    `;
 }
 
 //Initialize program
