@@ -9,28 +9,63 @@ function promptUser() {
  return inquirer.prompt ([
         {
            type: "input",
-           message: "What is your name?", 
-           name: "name",
+           message: "What is the name of your project?", 
+           name: "title",
         },
         {
             type: "input",
-            message: "Where are you from?", 
-            name: "place",
+            message: "Enter a description of your project.", 
+            name: "description",
          },
          {
             type: "input",
-            message: "What would you like your heading to say?", 
-            name: "heading",
+            message: "What are installation instructions for this project? If there are none, please write NONE.", 
+            name: "installation",
+         },
+         {
+            type: "input",
+            message: "What are your contribution guidelines?", 
+            name: "contribution",
+         },
+         {
+            type: "input",
+            message: "How would you like your application it be utilized?", 
+            name: "usage",
+            
+         },
+         {
+            type: "input",
+            message: "What are your test instructions?", 
+            name: "tests",
+            
+         },
+         {
+            type: "checkbox",
+            message: "Select a license:", 
+            name: "license",
+            choices: [
+                "MIT",
+                "ISC",
+                "Apache",
+                "GNU GPLv3",
+            ],
+            
+         },
+         {
+            type: "input",
+            message: "To whom should the credit of this project got to>", 
+            name: "credit",
          },
          {
             type: "input",
             message: "What is your GitHub username?", 
             name: "username",
+            
          },
          {
             type: "input",
-            message: "What is your LinkedIn?", 
-            name: "link",
+            message: "What is your email address?", 
+            name: "email",
             
          },
  ]);
@@ -53,7 +88,7 @@ async function init() {
 
         const readME = generateMarkdown(response);
 
-        await writeFileAsync ("README.md", readME;
+        await writeFileAsync ("README.md", readME);
         console.log("success!");
     } catch (err) {
         console.log(err);
