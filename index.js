@@ -4,7 +4,7 @@ const util = require('util');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
-
+//Prompting user each question
 function promptUser() {
  return inquirer.prompt ([
         {
@@ -53,7 +53,7 @@ function promptUser() {
          },
          {
             type: "input",
-            message: "To whom should the credit of this project got to>", 
+            message: "To whom should the credit of this project got to?", 
             name: "credit",
          },
          {
@@ -71,50 +71,50 @@ function promptUser() {
  ]);
 }
     
-//Creating inner code
+//Creating code that will be generated
 function generateMarkdown(response) {
-    return `
-    # ${response.title}
+    return `# ${response.title}
 
-    # Table of Contents
-
-    - [Description](#description)
-    - [Installation](#installation)
-    - [contribution](#contribution)
-    - [Usage](#usage)
-    - [Test](#tests)
-    - [License](#license)
-    - [Credit](#credit)
-    - [Github](#username)
-    - [Contact](#email)
-
-    ## Description:
-
-        ${response.description}
-
-    ## Installation
-
-        ${response.installation}
-
-    ## Usage
-
-        ${response.usage}
-
-    ## Test
-
-        ${response.credit}
     
-    ## License
+## Table of Contents:
 
-    ## Questions:
+* [Description](#description)
+* [Installation](#installation)
+* [contribution](#contribution)
+* [Usage](#usage)
+* [Test](#tests)
+* [Credit](#credit)
+* [Contact](#email)
+* [Github](#username)
+* [License](#license)
 
-        For any questions or inquiries, you can send me a direct email or visit 
-        my GitHub page:
+## Description:
 
-        -[GitHub Profile]:(https://github.com${response.username})
-        -[Email]:${response.email}
-    
-    `;
+    ${response.description}
+
+## Installation:
+
+    ${response.installation}
+
+## Usage:
+
+    ${response.usage}
+
+## Test:
+
+    ${response.credit}
+
+## Questions:
+
+    For any questions or inquiries, you can send me a direct email or visit 
+    my GitHub page:
+
+*[GitHub Profile]:(https://github.com${response.username})
+*[Email]:${response.email}
+
+## License:
+
+![License](https://img.sheilds.io/badge/License-${response.license}-blue.svg "License Badge")`;
 }
 
 //Initialize program
