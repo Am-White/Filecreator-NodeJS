@@ -45,9 +45,9 @@ function promptUser() {
             name: "license",
             choices: [
                 "MIT",
-                "ISC",
-                "Apache",
-                "GNU GPLv3",
+                "gpl-license",
+                "Apache-2.0",
+                "CDDL-1.0",
             ],
             
          },
@@ -59,8 +59,7 @@ function promptUser() {
          {
             type: "input",
             message: "What is your GitHub username?", 
-            name: "username",
-            
+            name: "username",           
          },
          {
             type: "input",
@@ -77,10 +76,9 @@ function generateMarkdown(response) {
 
     
 ## Table of Contents:
-
 * [Description](#description)
 * [Installation](#installation)
-* [contribution](#contribution)
+* [Contribution](#contribution)
 * [Usage](#usage)
 * [Test](#tests)
 * [Credit](#credit)
@@ -93,28 +91,30 @@ function generateMarkdown(response) {
     ${response.description}
 
 ## Installation:
-
     ${response.installation}
 
-## Usage:
+## Contribution:
+    ${response.contribution}
 
+## Usage:
     ${response.usage}
 
 ## Test:
+    ${response.tests}
 
+## Credit
     ${response.credit}
 
-## Questions:
-
+## Questions and Contact:
     For any questions or inquiries, you can send me a direct email or visit 
     my GitHub page:
+[GitHub Profile](https://github.com/${response.username})
 
-*[GitHub Profile]:(https://github.com${response.username})
-*[Email]:${response.email}
+[Email](${response.email})
 
 ## License:
-
-![License](https://img.sheilds.io/badge/License-${response.license}-blue.svg "License Badge")`;
+[License](https://opensource.org/licenses/${response.license}) 
+`
 }
 
 //Initialize program
@@ -127,7 +127,7 @@ async function init() {
 
         const readME = generateMarkdown(response);
 
-        await writeFileAsync ("README.md", readME);
+        await writeFileAsync (`${response.title}.md`, readME);
         console.log("success!");
     } catch (err) {
         console.log(err);

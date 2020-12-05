@@ -34,8 +34,8 @@
 ## Questions and Contact:
     For any questions or inquiries, you can send me a direct email or visit 
     my GitHub page:
-    [GitHub Profile]: (https://github.com/test)
-    [Email]: aybwhite@gmail.com
+[GitHub Profile](https://github.com/Am-White)
+[Email](aybwhite@gmail.com)
 
 ## License:
-    [License]: (https://opensource.org/licenses/Apache-2.0). 
+[License](https://opensource.org/licenses/CDDL-1.0) 
