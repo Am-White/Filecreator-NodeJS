@@ -6,6 +6,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 //Prompting user each question
 function promptUser() {
+    
  return inquirer.prompt ([
         {
            type: "input",
